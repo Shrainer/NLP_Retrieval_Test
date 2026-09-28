@@ -63,6 +63,8 @@ MAX_SOURCE_LEN = 1000
 # Используемая Dense-модель
 DENSE_MODEL_NAME = "intfloat/multilingual-e5-small"
 
+DENSE_MODEL_REVISION = "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+
 DENSE_CACHE_PATH = os.path.join(
     DATA_DIR,
     "item_emb_e5small_v2_structured.npy",
@@ -399,7 +401,8 @@ def get_dense_model():
         from sentence_transformers import SentenceTransformer
 
         _dense_model = SentenceTransformer(
-            DENSE_MODEL_NAME
+            DENSE_MODEL_NAME,
+            revision=DENSE_MODEL_REVISION,
         )
 
     return _dense_model
